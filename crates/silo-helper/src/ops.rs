@@ -16,10 +16,10 @@ use tokio::sync::oneshot;
 use crate::fetch::{FetchConfig, FetchState};
 
 /// Per-stream cap on captured Exec output.
-pub(crate) const EXEC_OUTPUT_CAP: usize = 1024 * 1024;
+pub(crate) const EXEC_OUTPUT_CAP: usize = 8 * 1024;
 
 /// Cap on bytes returned by one ReadFile request.
-pub(crate) const READ_FILE_CAP: u64 = 5 * 1024 * 1024;
+pub(crate) const READ_FILE_CAP: u64 = 64 * 1024;
 
 /// Window after process exit during which the output drain tasks may
 /// finish reading the pipes (descendants of the shell can hold them open).
